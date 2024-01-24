@@ -5,10 +5,8 @@ type TCourseHeaderProps = {
     name: string;
 }
 
-const CourseHeader: Component<TCourseHeaderProps> = ({ name }: TCourseHeaderProps): JSX.Element => {
-    
+const CourseHeader: Component<TCourseHeaderProps> = ({ name }: TCourseHeaderProps): JSX.Element => {    
     const [editMode, setEditMode] = createSignal<boolean>(false);
-
 
     return (
         <header class="py-2">
