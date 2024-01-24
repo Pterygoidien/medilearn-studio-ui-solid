@@ -1,30 +1,9 @@
-# SolidStart
+# User interface for Medilearn STUDIO
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+Medilearn Studio's UI was made with Solid Start, a meta framework that uses SolidJS FE and allows to use Static Generation (SG), Server-Side Rendering (SSR) and Hydration. 
 
-## Creating a project
+This allows caching static pages, while harvesting the resources mainly for generating dynamic content and fetching the database. 
 
-```bash
-# create a new project in the current directory
-npm init solid@latest
+The UI is running on Docker and make API calls to a traditional REST API coded in C# (ASP.NET). Medilearn Studio is part of a larger micro-services architecture ecosystem, MediLearn Network.
 
-# create a new project in my-app
-npm init solid@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Solid apps are built with _adapters_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different adapter, add it to the `devDependencies` in `package.json` and specify in your `vite.config.js`.
+Authentication and authorization are delegated to other microservices : Ory Network. The Client connects to the Identity Server (Ory Hydra) via SSO/OAuth2.0. 
