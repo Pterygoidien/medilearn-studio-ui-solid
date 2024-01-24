@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+    width: 100%;
+    max-width: 100vw;
+    height:100vh;
+    display:grid;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.05em;
+}
+h1 {
+    font-size: 2.5rem;
+
+}
+h2 {
+    font-size: 2rem;
+
+}
+h3 {
+    font-size: 1.68rem;
+}
+h4 {
+    font-size: 1.25rem;
+}
