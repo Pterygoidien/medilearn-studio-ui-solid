@@ -24,8 +24,8 @@ const CourseHeader: Component<TCourseHeaderProps> = ({
           }
         >
           <input
-            class="text-4xl font-bold leading-5 tracking-tighter"
-            style={{ width: `${courseName().length > 10 ? courseName().length : 10}ch` }}
+            class="text-4xl font-bold leading-5 tracking-tighter px-4 py-2"
+            style={{ width: `${courseName().length+8}ch`, "max-width": "100%", "min-width": "100px"}}
             type="text"
             value={courseName()}
             onInput={(e) => setCourseNameFn(e.target.value)}
