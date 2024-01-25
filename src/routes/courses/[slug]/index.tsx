@@ -15,7 +15,7 @@ export default function Page(): JSX.Element {
 
   createEffect(() => {
     //change URL param when courseName change
-    window.history.replaceState(null, "", `/courses/${courseName()}`);
+    window.history.replaceState(null, "", `/courses/${courseName().replace(/\s+/g, "-")}`);
   });
 
   const addSection = () => {
@@ -27,6 +27,7 @@ export default function Page(): JSX.Element {
           {
             name: "New section",
             chapters: [],
+            order: prev.sections.length + 1,
           },
         ],
       };
@@ -42,11 +43,17 @@ export default function Page(): JSX.Element {
       </section>
       <section class="flex flex-col gap-3">
         <h3>Course curriculum</h3>
-        <div class="bg-gray-100 p-4 rounded-xl">
+        <div class="bg-gray-100 p-4 rounded-xl flex flex-col gap-3">
           <For each={courseCuriculum.sections}>
-            {(section) => {
-              return <CourseSection section={section} />;
-            }}
+            {(section) =>
+              <CourseSection
+                section={section}
+                draggable={true}
+                onDragStart={(e) => console.log("called: " + e)}
+                onDragEnter={(e) => console.log("ENTER " + e)}
+                onDragEnd={(e) => console.log("END: " + e)}
+              />
+            }
           </For>
           <button onClick={addSection}>Add section</button>
         </div>
