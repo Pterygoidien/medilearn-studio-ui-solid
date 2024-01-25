@@ -2,20 +2,26 @@ import { Component, JSX, Show, createSignal } from "solid-js";
 
 
 type TCourseHeaderProps = {
-    name: string;
+    courseName: any;
+    setCourseNameFn: (name: string) => void;
 }
 
-const CourseHeader: Component<TCourseHeaderProps> = ({ name }: TCourseHeaderProps): JSX.Element => {    
+const CourseHeader: Component<TCourseHeaderProps> = ({ courseName, setCourseNameFn }: TCourseHeaderProps): JSX.Element => {    
     const [editMode, setEditMode] = createSignal<boolean>(false);
 
+
     return (
-        <header class="py-2">
+        <header class="py-2 bg-slate-50 px-2">
             <div class="container flex  items-center mx-auto gap-5">
-                <h2>Course : </h2>
+   
                 <Show when={editMode()} fallback={
-                    <><h2>{name}</h2> <span onClick={() => setEditMode(s=>!s)}>Modifier</span></>
+                    <>
+                        <h2>{courseName()}</h2>
+                        <span onClick={() => setEditMode(s => !s)}>Modifier</span>
+                    </>
                 }>
-                    <input type="text" value={name} />
+                    <input class="text-4xl font-bold leading-5 tracking-tighter" type="text" value={courseName()} onChange={(e)=>setCourseNameFn(e.target.value)} />
+                    <span onClick={() => setEditMode(s => !s)}>Enregistrer</span>
                 </Show>
                
             </div>
